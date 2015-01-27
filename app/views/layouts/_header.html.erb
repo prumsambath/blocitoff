@@ -1,0 +1,20 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <%= link_to 'Blocitoff', root_path, class: 'navbar-brand' %>
+
+    <ul class="nav navbar-nav navbar-right">
+      <% if current_user %>
+        <li><%= link_to 'My TODO', '#' %></li>
+        <li><%= link_to current_user.full_name, edit_user_registration_path(current_user) %></li>
+        <li>
+          <%= link_to destroy_user_session_path, method: :delete, class: 'btn btn-primary btn-sm' do %>
+            <span class="glyphicon glyphicons-log-out"></span>
+          <% end %>
+        </li>
+      <% else %>
+        <li><%= link_to 'Sign In', new_user_session_path %></li>
+        <li><%= link_to 'Sign Up', new_user_registration_path %></li>
+      <% end %>
+    </ul>
+  </div>
+</nav>
