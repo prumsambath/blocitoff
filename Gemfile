@@ -18,6 +18,8 @@ group :development do
   gem 'letter_opener'
   gem 'better_errors'
   gem 'binding_of_caller'
+  gem 'guard-rspec'
+  gem 'spring-commands-rspec'
 end
 
 group :development, :test do
@@ -32,7 +34,6 @@ group :development, :test do
 
   gem 'rspec-rails'
   gem 'factory_girl_rails'
-  gem 'guard-rspec'
   gem 'pry'
 end
 
