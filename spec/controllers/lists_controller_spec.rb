@@ -37,4 +37,19 @@ describe ListsController do
       expect(response).to redirect_to(lists_path)
     end
   end
+
+  describe 'PATCH #update' do
+    it 'should update List attribute with the new data' do
+      list = create(:list)
+      patch :update, id: list, list: attributes_for(:list, name: 'Programming to learn')
+      list.reload
+      expect(list.name).to eq('Programming to learn')
+    end
+
+    it 'should redirect to lists#index page' do
+      list = create(:list)
+      patch :update, id: list, list: attributes_for(:list, name: 'Programming to learn')
+      expect(response).to redirect_to(lists_path)
+    end
+  end
 end

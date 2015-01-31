@@ -13,6 +13,12 @@ class ListsController < ApplicationController
     redirect_to lists_path
   end
 
+  def update
+    list = List.find(params[:id])
+    list.update(list_params)
+    redirect_to lists_path
+  end
+
   private
 
   def list_params
