@@ -7,8 +7,8 @@
         <li><%= link_to 'My TODO', '#' %></li>
         <li><%= link_to current_user.full_name, edit_user_registration_path(current_user) %></li>
         <li>
-          <%= link_to destroy_user_session_path, method: :delete, class: 'btn btn-primary btn-sm' do %>
-            <span class="glyphicon glyphicons-log-out"></span>
+          <%= link_to destroy_user_session_path, method: :delete, class: 'btn btn-lg' do %>
+            <span class="glyphicon glyphicon-log-out"></span>
           <% end %>
         </li>
       <% else %>
