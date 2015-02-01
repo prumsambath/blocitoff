@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
-  has_many :lists
+  has_many :lists, dependent: :destroy
 
   def full_name
     "#{self.first_name} #{self.last_name}"

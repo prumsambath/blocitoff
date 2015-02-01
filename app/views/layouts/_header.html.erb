@@ -4,7 +4,7 @@
 
     <ul class="nav navbar-nav navbar-right">
       <% if current_user %>
-        <li><%= link_to 'My TODO', '#' %></li>
+        <li><%= link_to 'My TODO', lists_path %></li>
         <li><%= link_to current_user.full_name, edit_user_registration_path(current_user) %></li>
         <li>
           <%= link_to destroy_user_session_path, method: :delete, class: 'btn btn-lg' do %>
