@@ -1,0 +1,10 @@
+<div class="row">
+  <%= form_for List.new, remote: true do |f| %>
+    <div class="input-group">
+      <%= f.text_field :name, class: 'form-control' %>
+      <span class="input-group-addon">
+        <%= f.submit 'New List', class: 'btn btn-primary btn-xs' %>
+      </span>
+    </div>
+  <% end %>
+</div>
