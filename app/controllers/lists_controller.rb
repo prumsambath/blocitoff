@@ -9,8 +9,12 @@ class ListsController < ApplicationController
 
   def create
     list = List.new(list_params)
-    list.save
-    redirect_to lists_path
+    if list.save
+      flash[:notice] = 'A new list has been successfully added.'
+      redirect_to lists_path
+    else
+      flash[:error] = 'Error while adding a new list.'
+    end
   end
 
   def update
