@@ -1,13 +1,15 @@
 require 'rails_helper'
 
 describe ListsController do
+  include Devise::TestHelpers
+
   describe 'GET #index' do
-    it 'should show all the lists' do
-      first = create(:list)
-      second = create(:list)
+    it 'should show all lists' do
+      first = create(:list, user: user)
+      second = create(:list, user: user)
 
       get :index
-      expect(assigns(:lists)).to match_array([first, second])
+      expect(assigns(:lists)).to match([first, second])
     end
 
     it 'should render :index template' do
@@ -22,10 +24,16 @@ describe ListsController do
       get :show, id: list
       expect(assigns(:list)).to eq(list)
     end
+
+    it 'should redirect to show page' do
+      list = create(:list)
+      get :show, id: list
+      expect(response).to redirect_to(list_path(list))
+    end
   end
 
   describe 'POST #create' do
-    it 'should create a new list of todos' do
+    it 'should create a new list of items' do
       expect {
         post :create, list: attributes_for(:list)
       }.to change(List, :count).by(1)

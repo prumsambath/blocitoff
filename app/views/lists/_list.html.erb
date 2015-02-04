@@ -1,6 +1,4 @@
-<li class="list-group-item open">
-  <%= link_to list.name, list %>
-  <span class="show-menu">
-    <span class="glyphicon glyphicon-chevron-right"></span>
-  </span>
-</li>
+<%= link_to list, class: 'list-group-item' do %>
+  <%= list.name %>
+  <span class="badge"><%= list.items.count %></span>
+<% end %>

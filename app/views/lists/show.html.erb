@@ -2,16 +2,10 @@
   <div class="row">
     <div class="col-sm-offset-4 col-sm-4">
       <h3><%= @list.name %></h3>
-
-      <ul id="check-list-box" class="list-group">
-      <% @list.items.each do |item| %>
-        <li class="list-group-item">
-          <span class="glyphicon glyphicon-unchecked"></span>
-          <%= item.name %> <br/>
-          <small>created <%= time_ago_in_words(item.created_at) %> ago</small>
-        </li>
-      <% end %>
-      </ul>
+      <%= render partial: 'items/form', locals: { list: @list } %>
+      <div class="list-group" id="items">
+        <%= render(@list.items) || 'No TODO item added.' %>
+      </div>
     </div>
   </div>
 </div>

@@ -1,0 +1,5 @@
+<%= link_to '#', class: "list-group-item" do %>
+  <%= check_box_tag :completed, id: "item-#{item.id}" %>
+  <%= item.name %>
+  <span class="badge"><%= pluralize(item.days_left, 'day') %> left</span>
+<% end %>

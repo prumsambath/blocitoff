@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users
 
-  resources :lists, only: [:index, :show, :create, :update]
+  resources :lists do
+    resources :items, only: [:index, :create, :update, :delete]
+  end
 
   root to: 'welcome#index'
 end
