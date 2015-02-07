@@ -1,4 +1,12 @@
-<%= link_to list, class: 'list-group-item' do %>
-  <%= list.name %>
-  <span class="badge"><%= list.items.count %></span>
+<%= content_tag :div, id: "list-#{list.id}" do %>
+  <li class="list-group-item">
+    <h5 class="list-group-item-heading"><%= link_to list.name, list %></h5>
+    <small><%= pluralize(list.items.count, 'item') %> remaining</small>
+    <div class="pull-right">
+      <%= link_to list, method: :delete, class: 'btn btn-danger btn-xs', remote: true,
+        data: { confirm: 'Delete list will also delete its associated items. Are you sure?' } do %>
+        <span class="glyphicon glyphicon-trash"></span>
+      <% end %>
+    </div>
+  </li>
 <% end %>

@@ -1,1 +1,5 @@
-$('#items').prepend('<%= j render partial: @item, locals: { item: @item } %>');
+<% if @item.valid? %>
+  $('#items').prepend('<%= j render partial: @item, locals: { item: @item } %>');
+<% else %>
+  $('#new_list').html("<%= j render 'form' %>")
+<% end %>

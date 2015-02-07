@@ -7,14 +7,12 @@
 
       <%= render 'form' %>
 
-      <div class="row">
-        <div class="list-group">
+        <ul class="list-group">
           <%= render @lists %>
-          <div class="text-center">
-            <%= paginate @lists %>
-          </div>
+        </ul>
+        <div class="text-center">
+          <%= paginate @lists %>
         </div>
-      </div>
     </div>
   </div>
 </div>
