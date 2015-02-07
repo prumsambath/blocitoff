@@ -3,9 +3,9 @@
     <div class="col-sm-offset-4 col-sm-4">
       <h3><%= @list.name %></h3>
       <%= render partial: 'items/form', locals: { list: @list } %>
-      <div class="list-group" id="items">
+      <ul class="list-group" id="items">
         <%= render(@list.items) || 'No TODO item added.' %>
-      </div>
+      </ul>
     </div>
   </div>
 </div>

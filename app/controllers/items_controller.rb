@@ -10,6 +10,17 @@ class ItemsController < ApplicationController
     end
   end
 
+  def update
+    list = List.find(params[:list_id])
+    @item = Item.find(params[:id])
+    @item.update(completed: true)
+    @item.save
+    respond_to do |format|
+      format.html { redirect_to list }
+      format.js
+    end
+  end
+
   private
 
   def item_params
