@@ -1,1 +1,2 @@
-$('#item-' + <%= @item.id %>).hide();
+$('#item-' + <%= @item.id %>).fadeOut();
+$('#incompleted-item-count').html('<%= @item.list.incompleted_items.count %>');

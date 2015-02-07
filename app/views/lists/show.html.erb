@@ -1,10 +1,11 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-offset-4 col-sm-4">
-      <h3><%= @list.name %></h3>
+      <h3 class="text-center"><%= @list.name %>
+      <span class="badge" id="incompleted-item-count"><%= @list.incompleted_items.count %></span></h3>
       <%= render partial: 'items/form', locals: { list: @list } %>
       <ul class="list-group" id="items">
-        <%= render(@list.items) || 'No TODO item added.' %>
+        <%= render(@list.incompleted_items) || 'No TODO item added.' %>
       </ul>
     </div>
   </div>

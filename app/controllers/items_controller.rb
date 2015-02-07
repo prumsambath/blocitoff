@@ -13,8 +13,7 @@ class ItemsController < ApplicationController
   def update
     @list = List.find(params[:list_id])
     @item = Item.find(params[:id])
-    @item.update(completed: true)
-    @item.save
+    @item.update_attributes(completed: true)
     respond_to do |format|
       format.html { redirect_to list }
       format.js
