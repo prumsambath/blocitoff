@@ -1,7 +1,7 @@
 <li class="list-group-item" id="item-<%= item.id %>">
   <%= link_to [@list, item], method: :patch, remote: true do %>
-     <span class="glyphicon glyphicon-unchecked"></span>
+     <span class="item glyphicon glyphicon-unchecked"></span>
   <% end %>
-  <%= item.name %>
-  <span class="badge"><%= pluralize(item.days_left, 'day') %> left</span>
+  <%= item.name %> <br>
+  <small><%= pluralize(item.days_left, 'day') %> left</small>
 </li>
