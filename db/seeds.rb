@@ -17,7 +17,7 @@ User.delete_all
     list = user.lists.build(name: Faker::Lorem.words(rand(2..5)).join(' '))
 
     rand(3..10).times do
-      item = list.items.build(name: Faker::Lorem.words(rand(3..7)).join(' '))
+      item = list.items.build(name: Faker::Lorem.words(rand(3..7)).join(' '), completed: false)
       item.created_at = (rand*10).days.ago
     end
   end
