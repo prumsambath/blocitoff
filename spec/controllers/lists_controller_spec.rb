@@ -1,25 +1,24 @@
 require 'rails_helper'
 
 describe ListsController do
-  include Devise::TestHelpers
-
   describe 'GET #index' do
     before :each do
       @user = create(:user)
+      @user.skip_confirmation!
+      @user.save
+
       sign_in @user
     end
 
     it 'should show all lists' do
-
       first = create(:list, user: @user)
       second = create(:list, user: @user)
 
-      binding.pry
       get :index
-      expect(assigns(:lists)).to match([first, second])
+      expect(assigns(:lists)).to match_array([first, second])
     end
 
-    xit 'should render :index template' do
+    it 'should render :index template' do
       get :index
       expect(response).to render_template(:index)
     end

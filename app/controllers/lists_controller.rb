@@ -1,4 +1,6 @@
 class ListsController < ApplicationController
+  before_filter :authenticate_user!
+  
   def index
     @lists = current_user.lists.page(params[:page]).per(10)
   end
