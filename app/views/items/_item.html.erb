@@ -11,7 +11,7 @@
     <span class="badge"><%= pluralize(item.days_left, 'day') %> left</span>
   <% else %>
     <div class="pull-right">
-      <%= link_to  [@list, item], method: :delete, class: 'btn btn-danger btn-xs' do %>
+      <%= link_to  [@list, item], method: :delete, remote: true, class: 'btn btn-danger btn-xs' do %>
         <span class="glyphicon glyphicon-trash"></span>
       <% end %>
     </div>

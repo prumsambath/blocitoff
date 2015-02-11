@@ -24,7 +24,10 @@ class ItemsController < ApplicationController
     @list = List.find(params[:list_id])
     @item = Item.find(params[:id])
     @item.destroy
-    redirect_to @list
+    respond_to do |format|
+      format.html { redirect_to @list }
+      format.js
+    end
   end
 
   private
