@@ -15,9 +15,16 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
     @item.update_attributes(completed: true)
     respond_to do |format|
-      format.html { redirect_to list }
+      format.html { redirect_to @list }
       format.js
     end
+  end
+
+  def destroy
+    @list = List.find(params[:list_id])
+    @item = Item.find(params[:id])
+    @item.destroy
+    redirect_to @list
   end
 
   private
