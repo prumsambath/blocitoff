@@ -18,10 +18,10 @@
 $(document).ready(function() {
   $('#items').on('mouseover', 'a .item', function() {
     $(this).removeClass('glyphicon-unchecked');
-    $(this).addClass('glyphicon-ok');
+    $(this).addClass('glyphicon-check');
   });
   $('#items').on('mouseleave', 'a .item', function() {
-    $(this).removeClass('glyphicon-ok');
+    $(this).removeClass('glyphicon-check');
     $(this).addClass('glyphicon-unchecked');
   });
 });

@@ -1,6 +1,7 @@
 <% if @item.complete? %>
-  $('#item-' + <%= @item.id %>).appendTo('#complete-tasks');
+  $('#item-' + <%= @item.id %>).remove();
+  $('#complete-tasks').prepend('<%= j render partial: 'item', locals: { list: @list, item: @item } %>')
 <% else %>
-  $('#item-' + <%= @item.id %>).appendTo('#incomplete-tasks');
-  $('#incompleted-item-count').html('<%= @item.list.incompleted_items.count %>');
+  $('#incomplete-tasks').prepend('<%= j render partial: 'item', locals: { list: @list, item: @item } %>')
 <% end %>
+$('#incompleted-item-count').html('<%= @item.list.incompleted_items.count %>');
