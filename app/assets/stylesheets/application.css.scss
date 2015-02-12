@@ -1,11 +1,6 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-.list-group-item:hover, li.list-group-item a:hover {
-  text-decoration: none;
-  background-color: #f5f5f5;
-}
-
 #complete-tasks span.item {
   text-decoration: line-through;
 }
