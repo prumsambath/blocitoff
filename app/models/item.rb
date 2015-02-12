@@ -8,6 +8,10 @@ class Item < ActiveRecord::Base
     7 - (DateTime.now.to_date - created_at.to_date).to_i
   end
 
+  def complete?
+    self.completed
+  end
+
   private
 
   def set_to_incomplete

@@ -1,2 +1,6 @@
-$('#item-' + <%= @item.id %>).fadeOut();
-$('#incompleted-item-count').html('<%= @item.list.incompleted_items.count %>');
+<% if @item.complete? %>
+  $('#item-' + <%= @item.id %>).appendTo('#complete-tasks');
+<% else %>
+  $('#item-' + <%= @item.id %>).appendTo('#incomplete-tasks');
+  $('#incompleted-item-count').html('<%= @item.list.incompleted_items.count %>');
+<% end %>
