@@ -30,6 +30,18 @@ class ItemsController < ApplicationController
     end
   end
 
+  def clear_complete_items
+    @list = List.find(params[:list_id])
+    @list.complete_items.each do |item|
+      item.destroy
+    end
+
+    respond_to do |format|
+      format.html { redirect_to @list }
+      format.js
+    end
+  end
+
   private
 
   def item_params

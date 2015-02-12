@@ -4,4 +4,4 @@
 <% else %>
   $('#incomplete-tasks').prepend('<%= j render partial: 'item', locals: { list: @list, item: @item } %>')
 <% end %>
-$('#incompleted-item-count').html('<%= @item.list.incompleted_items.count %>');
+$('#incomplete-item-count').html('<%= @item.list.incomplete_items.count %>');

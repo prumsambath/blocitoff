@@ -6,11 +6,11 @@ class List < ActiveRecord::Base
 
   default_scope { order(:name) }
 
-  def completed_items
+  def complete_items
     items.where('completed = ?', true)
   end
 
-  def incompleted_items
+  def incomplete_items
     items.where('completed = ?', false)
   end
 end

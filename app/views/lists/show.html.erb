@@ -1,20 +1,27 @@
 <div class="container">
   <div class="row">
-    <div class="col-sm-offset-4 col-sm-4">
+    <div class="col-sm-offset-3 col-sm-6">
       <h3 class="text-center"><%= @list.name %>
-      <span class="badge" id="incompleted-item-count"><%= @list.incompleted_items.count %></span></h3>
+      <span class="badge" id="incomplete-item-count"><%= @list.incomplete_items.count %></span></h3>
       <%= render partial: 'items/form', locals: { list: @list } %>
       <ul class="list-group" id="items">
-        <%= render @list.incompleted_items %>
+        <%= render @list.incomplete_items %>
       </ul>
     </div>
   </div>
   <div class="row">
-    <div class="col-sm-offset-4 col-sm-4">
-      <h4>Complete Items</h4>
-      <ul class="list-group" id="complete-tasks">
-        <%= render @list.completed_items %>
-      </ul>
+    <div class="col-sm-offset-3 col-sm-6">
+      <div class="panel panel-primary">
+        <div class="panel-heading">Complete Items
+          <div class="pull-right">
+            <%= link_to 'Remove All', clear_complete_items_path(@list), method: :delete, class: 'btn btn-danger btn-xs',
+              remote: true, data: { confirm: 'Are you sure?' } %>
+          </div>
+        </div>
+          <ul class="list-group" id="complete-tasks">
+            <%= render @list.complete_items %>
+          </ul>
+      </div>
     </div>
   </div>
 

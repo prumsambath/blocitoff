@@ -1,4 +1,4 @@
 $('#items').prepend('<%= j render partial: 'items/item', locals: { list: @list, item: @item } %>');
-$('#incompleted-item-count').html('<%= @list.incompleted_items.count %>');
+$('#incomplete-item-count').html('<%= @list.incomplete_items.count %>');
 
 $('#new_item').html("<%= j render partial: 'items/form', locals: { list: @list } %>")
