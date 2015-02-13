@@ -13,6 +13,7 @@ gem 'bootstrap-sass'
 gem 'devise'
 gem 'figaro'
 gem 'kaminari'
+gem 'whenever', :require => false
 
 group :development do
   gem 'sqlite3'
