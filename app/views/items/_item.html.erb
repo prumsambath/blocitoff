@@ -1,8 +1,7 @@
 <li class="list-group-item" id="item-<%= item.id %>">
   <% if !item.complete? %>
-    <%= link_to [@list, item], method: :patch, remote: true do %>
-       <span class="item glyphicon glyphicon-unchecked"></span>
-    <% end %>
+    <%= link_to '', [@list, item], method: :patch, remote: true,
+      class: 'item glyphicon glyphicon-unchecked' %>
   <% else %>
      <span class="glyphicon glyphicon-check"></span>
   <% end %>
@@ -11,9 +10,8 @@
     <span class="badge"><%= pluralize(item.days_left, 'day') %> left</span>
   <% else %>
     <div class="pull-right">
-      <%= link_to  [@list, item], method: :delete, remote: true, class: 'btn btn-danger btn-xs' do %>
-        <span class="glyphicon glyphicon-remove"></span>
-      <% end %>
+      <%= link_to '', [@list, item], method: :delete, remote: true,
+        class: 'btn btn-danger btn-xs glyphicon glyphicon-remove' %>
     </div>
   <% end %>
 </li>

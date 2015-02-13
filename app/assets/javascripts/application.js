@@ -16,11 +16,11 @@
 //= require_tree .
 
 $(document).ready(function() {
-  $('#items').on('mouseover', 'a .item', function() {
+  $('#items').on('mouseover', 'a.item', function() {
     $(this).removeClass('glyphicon-unchecked');
     $(this).addClass('glyphicon-check');
   });
-  $('#items').on('mouseleave', 'a .item', function() {
+  $('#items').on('mouseleave', 'a.item', function() {
     $(this).removeClass('glyphicon-check');
     $(this).addClass('glyphicon-unchecked');
   });

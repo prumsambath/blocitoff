@@ -1,6 +1,10 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+a.item:hover {
+  text-decoration: none;
+}
+
 #complete-tasks span.item {
   text-decoration: line-through;
 }
